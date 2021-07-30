@@ -1,0 +1,7 @@
+@import 'fonts/index.less';
+
+body {
+    background-color: #284354;
+    color: white;
+    font-family: Roboto;
+}
