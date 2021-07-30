@@ -17,19 +17,19 @@ const multiActionMiddleware = store => next => action => {
     return map(action, x => store.dispatch(x))
 }
 
-const createRootReducer = (history, apiUrl) =>
+const createRootReducer = (history, apiUrl, apiKey) =>
     combineReducers({
-        config: createConfigReducer(apiUrl),
+        config: createConfigReducer(apiUrl, apiKey),
         citiesWeather: createWeatherReducer(),
         router: createRouterReducer(history),
     })
 
-const createStore = (history, apiUrl) => {
+const createStore = (history, apiUrl, apiKey) => {
     const epicMiddleware = createEpicMiddleware()
     const rootEpic = combineEpics(weatherCitiesEpic)
 
     const store = createStore_(
-        createRootReducer(history, apiUrl),
+        createRootReducer(history, apiUrl, apiKey),
         undefined,
         applyMiddleware(
             multiActionMiddleware,

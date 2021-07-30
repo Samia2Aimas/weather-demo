@@ -124,7 +124,7 @@ module.exports = {
       __BRANCH__: JSON.stringify('n/a'),
       __TIME__:JSON.stringify('n/a'),
       __API_URL__: JSON.stringify(' https://api.openweathermap.org/data/2.5/'),
-      __API_KEY: JSON.stringify('05d77ca7093c4792cdc32c023f2d7bd3'),
+      __API_KEY__: JSON.stringify('05d77ca7093c4792cdc32c023f2d7bd3'),
       __BASE_NAME__: JSON.stringify(''),
     }),
     // Force usage of a specialized index.html for debug and release builds.

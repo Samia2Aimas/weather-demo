@@ -41,21 +41,21 @@ const weatherListEpic = (action$, state$) => {
                 from(createGetRequest(
                     `weather`,
                     {
-                        appid: '05d77ca7093c4792cdc32c023f2d7bd3',
+                        appid: state$.value.config.weatherApiKey,
                         units: 'metric',
                         q: state$.value.citiesWeather.myLocation
                     })),
                 from(createGetRequest(
                     `weather`,
                     {
-                        appid: '05d77ca7093c4792cdc32c023f2d7bd3',
+                        appid: state$.value.config.weatherApiKey,
                         units: 'metric',
                         q: 'Berlin'
                     })),
                 from(createGetRequest(
                     `weather`,
                     {
-                        appid: '05d77ca7093c4792cdc32c023f2d7bd3',
+                        appid: state$.value.config.weatherApiKey,
                         units: 'metric',
                         q: 'London'
                     }))

@@ -13,7 +13,6 @@ const dispatchGetRequest = async (url: string, queryParameters = {}) => {
         mode: 'cors',
     }
     const resolvedUrl = url + createUrlQueryParameterPostfix(queryParameters)
-    console.log('pr', resolvedUrl)
     let response
     let jsonData
     response = await fetch(resolvedUrl, options)
