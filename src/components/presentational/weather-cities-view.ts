@@ -26,7 +26,14 @@ const WeatherCitiesView = (props) => {
                             ),
                             div('.cityProp', [
                                 item.main !== undefined ? item.main['temp'].toFixed() : '',
-                                span(["\u2103"])
+                                span(
+                                    {
+                                        onClick: () => props.changeUnits({
+                                            units: props.units == 'metric' ? 'standard':'metric'
+                                        })
+                                    },
+                                    [props.units == 'metric' ? "\u2103":"\u2109"]
+                                )
                             ])
                         ]
                     ])

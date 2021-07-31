@@ -16,11 +16,19 @@ const WeatherCityDetailView = (props) => {
                     div('.main', [city.weather[0]['main']]),
                     div('.temp', [
                         city.main['temp'].toFixed(),
-                        span(["\u2103"])
+                        span(
+                            [props.units == 'metric' ? "\u2103" : "\u2109"]
+                        )
                     ]),
                     div('.highLowTemp', [
-                        'H: ' + city.main['temp_max'].toFixed(), span(["\u2103"]),
-                        ' L:  ' + city.main['temp_min'].toFixed(), span(["\u2103"])
+                        'H: ' + city.main['temp_max'].toFixed(),
+                        span(
+                            [props.units == 'metric' ? "\u2103" : "\u2109"]
+                        ),
+                        ' L:  ' + city.main['temp_min'].toFixed(),
+                        span(
+                            [props.units == 'metric' ? "\u2103" : "\u2109"]
+                        )
                     ])
                 ]),
                 verticalContainer([

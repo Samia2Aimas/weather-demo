@@ -9,20 +9,22 @@ const actionCreator = actionCreatorFactory()
 
 
 const getWeatherStarted = actionCreator('WEATHER_LIST_STARTED')
-const getWeatherResult = actionCreator<{ weatherCitiesList: any }>('WEATHER_LIST_RESULT')
+const getWeatherResult = actionCreator<{ weatherCitiesList: Array<Number> }>('WEATHER_LIST_RESULT')
 const getWeatherFailed = actionCreator<{ error: number }>('WEATHER_LIST_FAILED')
 
 const enterLocation = actionCreator<{ defaultLocation: string }>('ENTER_LOCATION')
 const selectCity = actionCreator<{ selectedCity: string }>('SELECT_CITY')
-
+const changeUnits = actionCreator<{units: string}>('CHANGE_UNITS')
 
 const initialState = {
     weatherCitiesList: [],
     myLocation: 'Frankfurt',
-    selectedCity: ''
+    selectedCity: '',
+    units: 'metric'
 }
 
 const weatherActions = {
+    changeUnits,
     getWeatherStarted,
     enterLocation,
     selectCity
@@ -42,21 +44,21 @@ const weatherListEpic = (action$, state$) => {
                     `weather`,
                     {
                         appid: state$.value.config.weatherApiKey,
-                        units: 'metric',
+                        units: state$.value.citiesWeather.units,
                         q: state$.value.citiesWeather.myLocation
                     })),
                 from(createGetRequest(
                     `weather`,
                     {
                         appid: state$.value.config.weatherApiKey,
-                        units: 'metric',
+                        units: state$.value.citiesWeather.units,
                         q: 'Berlin'
                     })),
                 from(createGetRequest(
                     `weather`,
                     {
                         appid: state$.value.config.weatherApiKey,
-                        units: 'metric',
+                        units: state$.value.citiesWeather.units,
                         q: 'London'
                     }))
             ]).pipe(
@@ -82,6 +84,12 @@ const createReducer = () =>
             return {
                 ...state,
                 myLocation: action.payload.defaultLocation,
+            }
+        }
+        if (isType(action, changeUnits)) {
+            return {
+                ...state,
+                units: action.payload.units,
             }
         }
         if (isType(action, selectCity)) {
