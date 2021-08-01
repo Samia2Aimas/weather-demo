@@ -92,24 +92,7 @@ module.exports = {
       {
         test: /\.(eot|png|ttf|otf|woff|woff2)$/,
         use: 'file-loader'
-      },
-      {
-        test: /\.svg$/,
-        issuer: /\.(css|less)$/,
-        use: 'file-loader',
-      },
-      {
-        test: /\.svg$/,
-        issuer: /\.ts$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              dimensions: false
-            }
-          }
-        ]
-      },
+      }
     ]
   },
   resolve: {

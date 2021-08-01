@@ -6,7 +6,7 @@ import createRouter from './common/createRouter'
 import environment from './common/environment'
 import {createStore} from './common/store'
 
-import './style/main.css'
+import './style/main.less'
 
 
 const basename = environment.release ? environment.BASE_NAME : undefined
