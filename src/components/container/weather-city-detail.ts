@@ -1,8 +1,7 @@
 import {h} from 'react-hyperscript-helpers'
 import {connect} from 'react-redux'
 import {action as weatherActions} from '../../common/store/cities-weather'
-import WeatherCityDetailView from '../../components/presentational/weather-city-detail-view'
-import {useEffect} from "react";
+import Index from '../presentational/weather-city-detail'
 
 
 interface Prop {
@@ -14,7 +13,7 @@ interface Prop {
 
 const WeatherDetailContainer = (props: Prop) => {
     return h(
-        WeatherCityDetailView,
+        Index,
         {
             selectedCity: props.selectedCity,
             weatherCitiesList: props.weatherCitiesList,

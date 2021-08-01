@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {useEffect} from "react";
 import {action as weatherActions} from '../../common/store/cities-weather'
 import {Location} from "../../common/model";
-import WeatherCitiesView from "../presentational/weather-cities-view";
+import Index from "../presentational/weather-cities";
 import {goToDetailView} from "../../common/utils";
 import {routerActions} from "connected-react-router";
 
@@ -30,7 +30,7 @@ const WeatherCitiesContainer = (props: Prop) => {
 
     useFetching(props.getWeatherCities, props.myLocation, props.units)
     return h(
-        WeatherCitiesView,
+        Index,
         {
             changeUnits: props.changeUnits,
             weatherCitiesList: props.weatherCitiesList,

@@ -1,12 +1,12 @@
-import {div, h1, input, span} from 'react-hyperscript-helpers'
-import './weather-detail-view.less'
-
-import {getCityStatebyName, convertUnixTimestamp} from '../../common/utils'
-import view from "../framework/view";
-import {horizontalContainer, verticalContainer} from "../framework";
+import {div, h1, span} from 'react-hyperscript-helpers'
+import './style.less'
 
 
-const WeatherCityDetailView = (props) => {
+import {horizontalContainer, verticalContainer, view} from "../../framework";
+import {convertUnixTimestamp, getCityStatebyName} from "../../../common/utils";
+
+
+const Index = (props) => {
     const city = getCityStatebyName(props.weatherCitiesList, props.selectedCity)
     return view([
         h1('.title', [props.selectedCity]),
@@ -57,4 +57,4 @@ const WeatherCityDetailView = (props) => {
     ])
 }
 
-export default WeatherCityDetailView
+export default Index

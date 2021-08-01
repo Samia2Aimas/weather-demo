@@ -1,10 +1,9 @@
-import {div, h1, span, input} from 'react-hyperscript-helpers'
-import './weather-view.less'
-import view from "../framework/view";
-import {horizontalContainer} from "../framework";
+import {div, h1, input, span} from 'react-hyperscript-helpers'
+import './style.less'
+import {horizontalContainer, view} from "../../framework";
 
 
-const WeatherCitiesView = (props) => {
+const Index = (props) => {
     return view([
         h1('.title', ['Dashboard']),
         input('.inputLocation', {
@@ -44,4 +43,4 @@ const WeatherCitiesView = (props) => {
 }
 
 
-export default WeatherCitiesView
+export default Index
